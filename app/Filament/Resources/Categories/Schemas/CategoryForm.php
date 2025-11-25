@@ -1,19 +1,18 @@
 <?php
 
-namespace App\Filament\Resources\Users\Schemas;
+namespace App\Filament\Resources\Categories\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-class UserForm
+class CategoryForm
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
             ->components([
-                TextInput::make("name"), 
-                TextInput::make('email'), 
-                TextInput::make('password')->password(), 
+                TextInput::make('name'),
+                TextInput::make('slug')
             ]);
     }
 }
