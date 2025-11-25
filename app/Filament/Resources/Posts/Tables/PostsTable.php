@@ -16,12 +16,13 @@ class PostsTable
     {
         return $table
             ->columns([
-                ImageColumn::make("image")->disk("public"),
+                ImageColumn::make("image")->disk("public")
+                ->url(fn ($record) => asset('storage/' . $record->image)),
                 TextColumn::make("title"),
                 TextColumn::make("slug"),
                 TextColumn::make("category.name"),
-                TextColumn::make("color"),
-                ColorColumn::make('body'),
+                TextColumn::make("body"),
+                ColorColumn::make('color'),
                 TextColumn::make("tags"),
             ])
             ->filters([
