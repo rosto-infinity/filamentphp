@@ -29,7 +29,7 @@ class PostForm
     public static function configure(Schema $schema): Schema
     {
         return $schema
-        // On utilise la méthode components() sur le schéma fourni
+        // -On utilise la méthode components() sur le schéma fourni
             ->components([
                 ComponentsTabs::make('Création de l\'article')
                     ->tabs([
