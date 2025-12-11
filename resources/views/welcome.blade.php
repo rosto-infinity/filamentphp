@@ -40,7 +40,7 @@
 
         {{-- Contenu principal --}}
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            
+           
             <header class="text-center mb-16">
                 <h1 class="text-6xl font-extrabold text-gray-900">
                     Dernières Actualités & Expertise

@@ -17,12 +17,13 @@ use Filament\Tables\Filters\SelectFilter;
 
 class PostsTable
 {
+    
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
                 ImageColumn::make("image")
-                 ->circular()
+                ->circular()
                 ->disk("public"),
                 TextColumn::make("title")->sortable()->searchable(),
                 TextColumn::make("slug")->sortable()->searchable(),
