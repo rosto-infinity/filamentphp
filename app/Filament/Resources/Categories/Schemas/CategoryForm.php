@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources\Categories\Schemas;
 
-use Filament\Forms\Components\TextInput;
+use Illuminate\Support\Str;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\TextInput;
 
 class CategoryForm
 {
@@ -11,7 +12,9 @@ class CategoryForm
     {
         return $schema
             ->components([
-                TextInput::make('name'),
+                TextInput::make('name')->reactive()
+                    ->afterStateUpdated(fn($state, callable $set) =>
+                    $set("slug", Str::slug($state))),
                 TextInput::make('slug')
             ]);
     }

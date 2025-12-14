@@ -1,27 +1,30 @@
 <?php
 
-namespace App\Filament\Resources\Tags\Tables;
+namespace App\Filament\Resources\Cities\Tables;
 
 use Filament\Tables\Table;
 use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
 
-class TagsTable
+class CitiesTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make("name")
+                  TextColumn::make('name')
+                ->label("Nom de la Ville"),
+               TextColumn::make('state.name')
+                ->label("Nom de la region"),
+               TextColumn::make('country.name')
+                ->label("Nom du pays")
             ])
             ->filters([
                 //
             ])
             ->recordActions([
-                ViewAction::make(),
                 EditAction::make(),
             ])
             ->toolbarActions([

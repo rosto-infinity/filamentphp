@@ -28,6 +28,8 @@ use Filament\Forms\Components\Tabs\Tab; // Importation de Tab
 use Filament\Schemas\Components\Section as ComponentsSection;
 use Illuminate\Support\Str; // Importation de la classe Str pour le slug
 
+use function Livewire\str;
+
 class PostForm
 {
     /**
@@ -48,13 +50,12 @@ class PostForm
                                     "min" => "Le titre doit avoir au moins  3 caractères",
                                     "required" => "Le titre est oligatoire",
                                     "max" => "Le titre doit avoir au max  160 caractères"
-                                ]),
-                            TextInput::make('slug')
-                                ->rules(['required'])->unique()
-                                ->validationMessages([
-                                    "unique" => "Le slug doit etre unique",
-                                    "required" => "Le slug est oligatoire"
-                                ]),
+                                ])
+                                ->label("Titre de l'article")
+                                ->reactive()
+                                ->afterStateUpdated(fn ($state, callable $set)=>
+                                $set("slug", Str::slug($state))),
+                            TextInput::make('slug'),
                             Select::make("category_id")
                                 ->label("Catégorie")
                                 // ->options(Category::all()->pluck("name", "id"))
