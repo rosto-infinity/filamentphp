@@ -63,10 +63,20 @@
                     </h1>
                     <div class="flex items-center justify-between text-sm text-gray-500">
                         <span>Publié le {{ $post->published_at->format('d M Y') }}</span>
+                        
                         <span class="px-3 py-1 text-xs font-semibold rounded-full" style="background-color: {{ $post->color ?? '#e5e7eb' }}; color: black;">
                             {{ $post->category->name ?? 'Non classé' }}
                         </span>
+                        
                     </div>
+                     {{-- Tags --}}
+                @if($post->tags)
+                    <div class="mt-12 pt-6 border-t flex flex-wrap gap-3">
+                        @foreach($post->tags as $tag)
+                            <span class="text-sm bg-gray-100 text-gray-600 px-3 py-1 rounded-full">#{{ $tag->name }}</span>
+                        @endforeach
+                    </div>
+                @endif
                 </header>
 
                 {{-- Contenu de l'article --}}
@@ -75,14 +85,7 @@
                     {!! nl2br(e($post->body)) !!} 
                 </div>
 
-                {{-- Tags --}}
-                @if($post->tags)
-                    <div class="mt-12 pt-6 border-t flex flex-wrap gap-3">
-                        @foreach($post->tags as $tag)
-                            <span class="text-sm bg-gray-100 text-gray-600 px-3 py-1 rounded-full">#{{ $tag }}</span>
-                        @endforeach
-                    </div>
-                @endif
+               
 
             </article>
         </main>

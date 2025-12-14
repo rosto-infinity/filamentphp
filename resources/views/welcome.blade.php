@@ -90,9 +90,10 @@
                                     
                                     {{-- Tags --}}
                                     @if($post->tags)
+                                   {{-- {{ $post->tags->name }} --}}
                                         <div class="flex flex-wrap gap-2 text-xs">
                                             @foreach($post->tags as $tag)
-                                                <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">#{{ $tag }}</span>
+                                                <span class="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">#{{ $tag->name }}</span>
                                             @endforeach
                                         </div>
                                     @endif

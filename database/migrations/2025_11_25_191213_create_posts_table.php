@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->integer('category_id');
+             // BONNE PRATIQUE : Utilise foreignId()
+           $table->foreignId('category_id')
+           ->constrained();   // -Lie automatiquement à 'categories' table, 'id' column
             $table->string('color');
             $table->string('image');
             $table->text('body');
-            $table->json('tags');
             $table->boolean('published')->default(false);
             $table->date('published_at');
             $table->timestamps();

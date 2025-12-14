@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Filament\Resources\Tags\Schemas;
+
+use Filament\Schemas\Schema;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
+
+class TagForm
+{
+    public static function configure(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+
+                TextInput::make('name')->rules([
+                    "required",
+                ]),
+                TextInput::make('slug'),
+            ]);
+    }
+}
