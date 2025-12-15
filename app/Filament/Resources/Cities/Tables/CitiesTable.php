@@ -18,7 +18,7 @@ class CitiesTable
                 ->label("Nom de la Ville"),
                TextColumn::make('state.name')
                 ->label("Nom de la region"),
-               TextColumn::make('country.name')
+               TextColumn::make("state.country.name")
                 ->label("Nom du pays")
             ])
             ->filters([
