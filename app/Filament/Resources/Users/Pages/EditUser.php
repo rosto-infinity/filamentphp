@@ -16,4 +16,15 @@ class EditUser extends EditRecord
             DeleteAction::make(),
         ];
     }
+    // Rediriger vers la liste après modification (optionnel mais propre)
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
+
+    // Notification personnalisée en cas de succès
+    protected function getSavedNotificationTitle(): ?string
+    {
+        return 'Utilisateur mis à jour avec succès !';
+    }
 }
