@@ -38,7 +38,7 @@ class UserForm
                             }
                         })->reactive()
                         ->searchable()
-                        ->preload() // Optionnel : charge les données pour une recherche plus fluide
+                        ->preload() // -Optionnel : charge les données pour une recherche plus fluide
                         ->key('state_select'), // Aide parfois Livewire à suivre le composant
 
                 ])
