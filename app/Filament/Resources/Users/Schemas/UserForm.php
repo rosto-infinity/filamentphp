@@ -25,7 +25,7 @@ class UserForm
                         ->label("Pays")
                         ->options(Country::pluck("name", "id"))->reactive()
                         ->searchable(),
-                    // ->live(), // Déclenche la mise à jour immédiate des autres champs
+                    // ->live(), // -Déclenche la mise à jour immédiate des autres champs
                     Select::make("state_id")
                         ->label("Nom de la region")
                         ->options(function (callable $get) {
