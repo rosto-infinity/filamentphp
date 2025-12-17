@@ -25,6 +25,7 @@ class TagResource extends Resource
     protected static ?string $recordTitleAttribute = 'name';
 
          protected static string|UnitEnum|null $navigationGroup = "Blog";
+          protected static ?string $navigationParentItem="Posts";
 
     public static function form(Schema $schema): Schema
     {

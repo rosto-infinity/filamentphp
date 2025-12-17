@@ -25,6 +25,7 @@ class PostResource extends Resource
     protected static ?string $recordTitleAttribute = 'title';
 
     protected static string|UnitEnum|null $navigationGroup = "Blog";
+    // protected static ?string $navigationParentItem="Posts";
 
     public static function form(Schema $schema): Schema
     {
