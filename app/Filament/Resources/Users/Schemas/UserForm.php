@@ -31,7 +31,7 @@ class UserForm
             ]),
 
         Section::make("Localisation")
-            ->columns(3) // Pays, Région et Ville sur une seule ligne
+            ->columns(3) // -Pays, Région et Ville sur une seule ligne
             ->schema([
                 // PAYS
                 Select::make("country_id")
