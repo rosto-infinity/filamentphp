@@ -14,20 +14,22 @@ use App\Filament\Resources\Tags\Pages\CreateTag;
 use App\Filament\Resources\Tags\Schemas\TagForm;
 use App\Filament\Resources\Tags\Tables\TagsTable;
 use App\Filament\Resources\Categories\RelationManagers\PostsRelationManager;
+use UnitEnum;
 
 class TagResource extends Resource
 {
     protected static ?string $model = Tag::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;
 
     protected static ?string $recordTitleAttribute = 'name';
+
+         protected static string|UnitEnum|null $navigationGroup = "Blog";
 
     public static function form(Schema $schema): Schema
     {
         return TagForm::configure($schema);
     }
-
     public static function table(Table $table): Table
     {
         return TagsTable::configure($table);

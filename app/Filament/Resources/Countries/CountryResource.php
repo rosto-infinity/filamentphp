@@ -13,14 +13,24 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class CountryResource extends Resource
 {
     protected static ?string $model = Country::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedFlag;
 
-    protected static ?string $recordTitleAttribute = 'name';
+    // protected static ?string $recordTitleAttribute = 'name';
+
+     protected static string|UnitEnum|null $navigationGroup = "Localisation de l'utilisateur";
+     protected static ?int $navigationSort=1;
+     protected static ?string $modelLabel = "Gerer les pays";
+
+   public static function getNavigationBadge(): ?string
+     {
+        return Country::count();
+     }
 
     public static function form(Schema $schema): Schema
     {
