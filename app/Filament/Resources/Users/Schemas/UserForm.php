@@ -21,20 +21,26 @@ class UserForm
                     TextInput::make('password')->password(),
                 ])),
                 Section::make("Localisation")->schema([
-                    Select::make("country")
+                    Select::make("country_id")
                         ->label("Pays")
-                        ->options(Country::pluck("name", "id")),
+                        ->options(Country::pluck("name", "id"))->reactive()
+                        ->searchable(),
+                    // ->live(), // Déclenche la mise à jour immédiate des autres champs
                     Select::make("state_id")
-                    ->label("Nom de la region")
-                    ->options(function (callable $get) {
-                        $country = $get("country_id");
-                        if (!$country) {
-                            return [];
-                        } else {
-                            return State::whereCountryId($country)
-                                ->pluck('name', 'id');
-                        }
-                    })->reactive(),
+                        ->label("Nom de la region")
+                        ->options(function (callable $get) {
+                            $country = $get("country_id");
+                            if (!$country) {
+                                return [];
+                            } else {
+                                return State::whereCountryId($country)
+                                    ->pluck('name', 'id');
+                            }
+                        })->reactive()
+                        ->searchable()
+                        ->preload() // Optionnel : charge les données pour une recherche plus fluide
+                        ->key('state_select'), // Aide parfois Livewire à suivre le composant
+
                 ])
             ]);
     }
