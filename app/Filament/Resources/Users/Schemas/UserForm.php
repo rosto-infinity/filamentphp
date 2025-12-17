@@ -40,7 +40,7 @@ class UserForm
                     ->searchable()
                     ->preload()
                     ->reactive()
-                    ->afterStateUpdated(fn (callable $set) => $set('state_id', null)), // Reset la région si le pays change
+                    ->afterStateUpdated(fn (callable $set) => $set('state_id', null)), // -Reset la région si le pays change
 
                 // RÉGION
                 Select::make("state_id")
