@@ -64,7 +64,7 @@ class UserForm
                     )
                     ->searchable()
                     ->preload()
-                    ->disabled(fn (callable $get) => !$get('state_id')), // Grisé si pas de région
+                    ->disabled(fn (callable $get) => !$get('state_id')), // -Grisé si pas de région
             ])
     ]);
 }
