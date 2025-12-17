@@ -15,7 +15,7 @@ class UserForm
 {
     return $schema->components([
         Section::make("Information de connexion")
-            ->columns(2) // Organisation sur 2 colonnes pour la propreté
+            ->columns(2) // -Organisation sur 2 colonnes pour la propreté
             ->schema([
                 TextInput::make("name")
                     ->required()
