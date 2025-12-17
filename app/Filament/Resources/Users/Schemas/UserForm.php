@@ -27,7 +27,7 @@ class UserForm
                 TextInput::make('password')
                     ->password()
                     ->dehydrated(fn ($state) => filled($state)) // -N'enregistre que s'il est rempli
-                    ->required(fn ($context) => $context === 'create'), // Requis uniquement à la création
+                    ->required(fn ($context) => $context === 'create'), // -Requis uniquement à la création
             ]),
 
         Section::make("Localisation")
