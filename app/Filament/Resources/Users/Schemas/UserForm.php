@@ -26,7 +26,7 @@ class UserForm
                     ->unique(ignoreRecord: true), // -Évite l'erreur d'email déjà pris lors de l'edit
                 TextInput::make('password')
                     ->password()
-                    ->dehydrated(fn ($state) => filled($state)) // N'enregistre que s'il est rempli
+                    ->dehydrated(fn ($state) => filled($state)) // -N'enregistre que s'il est rempli
                     ->required(fn ($context) => $context === 'create'), // Requis uniquement à la création
             ]),
 
